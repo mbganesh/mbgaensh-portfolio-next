@@ -10,11 +10,6 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const emailJSConfig = {
-    service_id: "service_tbba52n",
-    template_id: "template_ic7vzrr",
-    public_key: "9KoGXvwhqQzcWgV16"
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,10 +21,10 @@ export default function Contact() {
     try {
       // Uses environment variables defined in .env.local
       await emailjs.sendForm(
-        emailJSConfig.service_id,
-        emailJSConfig.template_id,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         formRef.current,
-        emailJSConfig.public_key
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
       setSubmitStatus("success");
       formRef.current.reset();
