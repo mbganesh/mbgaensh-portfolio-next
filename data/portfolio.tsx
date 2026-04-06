@@ -82,7 +82,7 @@ export const skills = [
 
 export const experiences: Experience[] = [
   {
-    title: "Senior Frontend",
+    title: "Senior Frontend Developer",
     company: "Yitro Tech",
     period: "Mar 2026 – Present",
     description:
