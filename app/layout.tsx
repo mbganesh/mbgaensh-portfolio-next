@@ -16,11 +16,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import CursorEffect from "@/components/CursorEffect";
+import { yearsOfExperience } from "@/data/portfolio";
 
 export const metadata: Metadata = {
   title: "Ganesh MB | Full Stack Developer",
-  description:
-    "Portfolio of Ganesh MB — Full Stack Developer specializing in React, Next.js, Node.js, and Blockchain technologies with 4+ years of experience.",
+  description: `Portfolio of Ganesh MB — Full Stack Developer specializing in React, Next.js, Node.js, and Blockchain technologies with ${yearsOfExperience} years of experience.`,
   keywords: [
     "Ganesh MB",
     "Full Stack Developer",

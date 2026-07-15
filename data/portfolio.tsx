@@ -14,7 +14,8 @@ export interface Experience {
   title: string;
   company: string;
   period: string;
-  description: string;
+  description: string[];
+  isCurrent?: boolean;
 }
 
 export interface Project {
@@ -41,11 +42,13 @@ export interface StackOverflowStats {
   profileUrl: string;
 }
 
+export const yearsOfExperience = '5+'
+
 export const personalInfo = {
   name: "Ganesh",
   fullName: "Ganesh MB",
   greeting: "Hi There, I'm Ganesh.",
-  experienceBadge: "4+ Years Experience",
+  experienceBadge: `${yearsOfExperience} Years Experience`,
   tagline: "I'm always looking for new challenges, to push my skills to the next level",
   email: "mbganesh.jdev@gmail.com",
   phone: "+91 84899 91253",
@@ -57,7 +60,7 @@ export const personalInfo = {
     "MERN Stack Development",
     "Backend Development",
   ],
-  bio: `I am skilled in React.Js, Node Js, Javascript, HTML, CSS and have worked with both web-based, multi-threaded applications as well as front-end and back-end development using the latest web technologies. Good in developing customer service-oriented applications with solid test automation strategies. In past have worked on both service and project side in service projects utilizing Blockchain technologies like Trade, Swap, Liquidity, Stake, NFT. In addition to my skills in coding, I am skilled in conducting technical analysis as well as assisting clients in project management.`,
+  bio: `Senior Frontend Developer with ${yearsOfExperience} years of experience building scalable, high-performance web applications using React.js, Next.js, TypeScript, and JavaScript. Experienced in developing enterprise applications from scratch, architecting reusable frontend systems, integrating RESTful APIs with TanStack Query, implementing secure authentication using NextAuth.js, and optimizing application performance, SEO, and user experience. Strong experience collaborating with cross-functional teams in Agile environments while delivering production-ready solutions.`,
   skillTags: [
     "Software Engineer",
     "Next.js Developer",
@@ -83,31 +86,57 @@ export const skills = [
 export const experiences: Experience[] = [
   {
     title: "Senior Frontend Developer",
-    company: "Yitro Tech",
-    period: "Mar 2026 – Present",
+    company: "Yitro Tech Pvt Ltd",
+    period: "Mar 2026 – Jul 2026",
     description:
-      "Worked as a Front End Developer on e-commerce projects, creating responsive, user-friendly websites using Next.js, React.js, and TypeScript. Collaborated with teams to enhance performance, accessibility, and user experience.",
+      ["Architected the AfricanoEv platform from scratch using Next.js, TypeScript, and Tailwind CSS.",
+        "Integrated RESTful APIs using TanStack Query, implementing efficient caching, background refetching, and query invalidation.",
+        "Implemented secure authentication and authorization using NextAuth.js.",
+        "Built reusable UI components and scalable frontend architecture to accelerate feature development.",
+        "Worked closely with backend teams to integrate APIs and deliver production-ready features.",
+        "Optimized frontend performance and improved overall user experience."],
+    isCurrent: false
   },
   {
     title: "Full Stack Developer",
     company: "Nibav Lifts",
     period: "Mar 2024 – Mar 2026",
-    description:
-      "Worked as a Front End Developer on e-commerce projects, creating responsive, user-friendly websites using Next.js, React.js, and TypeScript. Collaborated with teams to enhance performance, accessibility, and user experience.",
+    description: [
+      "Developed customer-facing applications for Nibav Customer Site and Elite Customer Site using React.js, Next.js, and TypeScript.",
+      "Built Lift Configurator modules allowing customers to customize residential and commercial elevators.",
+      "Implemented authentication, REST API integration, and reusable component architecture.",
+      "Improved website SEO, Core Web Vitals, and application performance.",
+      "Collaborated with UI/UX designers and backend developers in Agile sprints.",
+      "Participated in code reviews and maintained high coding standards."
+    ],
+    isCurrent: false
   },
   {
     title: "MERN Stack Developer",
     company: "Osiz Technologies",
     period: "Jul 2022 – Jan 2024",
-    description:
-      "Worked as a MERN Stack Programmer on web projects, implementing blockchain and NFT concepts with end-to-end smart contract integration.",
+    description: ["Developed scalable frontend applications using React.js, Redux Toolkit, RTK Query, and Tailwind CSS.",
+      "Built major frontend modules for Champion City Poker and BigShot ICO.",
+      "Developed NFT Marketplace features and integrated Web3.js wallet connectivity.",
+      "Implemented social authentication and referral management systems.",
+      "Integrated Unity WebGL games into React applications.",
+      "Developed REST APIs using Node.js and Express.js.",
+      "Collaborated with cross-functional teams following Agile methodologies."],
+    isCurrent: false
   },
   {
     title: "Programmer",
     company: "Netcom Computers Pvt Ltd",
     period: "Jan 2021 – Jul 2022",
-    description:
-      "Worked as an Android and Web Developer on multiple projects, delivering solutions for both web and mobile platforms.",
+    description: [
+      "Developed frontend modules for GilGal, an e-learning platform similar to Udemy.",
+      "Built reusable React components using Material UI and Redux.",
+      "Implemented Firebase Authentication including Google Sign-In.",
+      "Developed CRM modules and integrated REST APIs.",
+      "Contributed to backend API development using Node.js, Express.js, and MongoDB.",
+      "Worked with UI/UX designers to deliver responsive web applications."
+    ],
+    isCurrent: false
   },
 ];
 
@@ -117,21 +146,29 @@ export const projects: Project[] = [
     description:
       "Nibav Lifts is a lift sales company where customers can order and customize home lifts through the website, as well as track their orders seamlessly.",
     url: "https://nibavlifts.in/",
-    tags: ["Next.js", "React", "TypeScript", "E-commerce"],
+    tags: ["React.js", "Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS", "E-commerce"],
   },
   {
     title: "Elite Elevators",
     description:
       "Elite Elevators is a lift sales company that enables customers to order and customize commercial lifts online while conveniently tracking their orders.",
     url: "https://www.eliteelevators.in/",
-    tags: ["React", "Node.js", "E-commerce"],
+    tags: ["React.js", "Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS", "E-commerce"],
+  },
+  {
+    title: "AfricanoEv",
+    description:
+      "Developed the frontend architecture from scratch using Next.js and TypeScript, implementing TanStack Query for efficient server-state management. Built reusable UI components and integrated secure authentication with NextAuth.",
+    tags: [
+      "Next.js", "TypeScript", "Tailwind CSS", "TanStack Query", "NextAuth.js"
+    ]
   },
   {
     title: "Champion City Poker",
     description:
       "Champion City Poker is a game environment site, it allows users to buy our native token to play poker games and win rewards. It implements NFT and blockchain game tournaments.",
     url: "https://staging.ccpoker.games/",
-    tags: ["Blockchain", "NFT", "React", "Web3"],
+    tags: ["React.js", "Redux Toolkit", "RTK Query", "Web3.js", "Node.js", "NFT"]
   },
   {
     title: "BigShot",
@@ -143,14 +180,14 @@ export const projects: Project[] = [
     title: "PWA Collection",
     description:
       "PWA is developing web applications to provide traditional web apps the look and feel of native apps. This app includes music player, e-commerce, calendar, chat, etc.",
-    tags: ["PWA", "React", "Mobile-First"],
+    tags: ["PWA", "React", "Redux Toolkit", "RTK Query", "Mobile-First"],
   },
   {
     title: "GilGal",
     description:
       "Gilgal is an online learning app personalized for CBSE, ICSE & State Board students.",
     tags: ["EdTech", "React", "Node.js"],
-  },
+  }
 ];
 
 export const stackOverflow: StackOverflowStats = {

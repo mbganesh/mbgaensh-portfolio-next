@@ -47,7 +47,7 @@ export default function Experience() {
                 <div className="absolute left-0 md:left-8 top-1 -translate-x-1/2">
                   <div className="relative">
                     <div className="w-4 h-4 rounded-full bg-bg-primary border-2 border-accent-primary shadow-lg shadow-accent-primary/20" />
-                    {i === 0 && (
+                    {exp?.isCurrent && i == 0 && (
                       <div className="absolute -inset-1 rounded-full bg-accent-primary/20 animate-ping" />
                     )}
                   </div>
@@ -64,7 +64,7 @@ export default function Experience() {
                     <span className="px-3 py-1 rounded-full text-xs font-medium bg-accent-primary/10 text-accent-primary border border-accent-primary/20">
                       {exp.period}
                     </span>
-                    {i === 0 && (
+                    {exp?.isCurrent && i === 0 && (
                       <span className="flex items-center gap-1.5 text-xs text-accent-emerald font-medium">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-pulse" />
                         Current
@@ -78,9 +78,14 @@ export default function Experience() {
                   <p className="text-sm text-accent-secondary font-medium mt-1">
                     {exp.company}
                   </p>
-                  <p className="mt-3 text-sm text-text-secondary leading-relaxed">
-                    {exp.description}
-                  </p>
+                  <ul className="mt-3 space-y-2">
+                    {exp.description?.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-text-secondary leading-relaxed">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-text-secondary shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
